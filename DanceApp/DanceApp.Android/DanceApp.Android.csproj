@@ -63,7 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Font\CaviarDreams_Bold.ttf" />
+    <AndroidAsset Include="Assets\CaviarDreams_Bold.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -86,7 +86,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\tempimage.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DanceApp\DanceApp.csproj">
       <Project>{76062F1A-8FD4-4153-879D-3DF9A567FD3B}</Project>

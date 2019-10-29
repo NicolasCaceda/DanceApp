@@ -9,10 +9,17 @@
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" 
+                FontFamily="{StaticResource CaviarDreams_Bold}"   
+                />
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"   
+                />
             <Button
                 Text="To Lesson Screen"
                 Clicked="Button_Clicked"
+                FontFamily="{StaticResource CaviarDreams_Bold}"
                 />
         </StackLayout>
     </ContentPage.Content>

@@ -21,5 +21,10 @@ namespace DanceApp.View
         {
             Navigation.PopAsync();
         }
+
+        private void Sound_Check_Box_ImageButton(object sender, EventArgs e)
+        {
+            Console.WriteLine("Pressed");
+        }
     }
 }

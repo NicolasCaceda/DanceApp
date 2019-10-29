@@ -6,6 +6,11 @@
              mc:Ignorable="d"
              x:Class="DanceApp.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="CaviarDreams_Bold">
+                <On Platform="Android" Value="CaviarDreams_Bold.tff#CaviarDreams_Bold"/>
+                <On Platform="IOS" Value="CaviarDreams_Bold"/>
+            </OnPlatform>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

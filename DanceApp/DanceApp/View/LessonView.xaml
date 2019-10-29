@@ -6,11 +6,59 @@
              mc:Ignorable="d"
              x:Class="DanceApp.View.LessonView">
     <ContentPage.Content>
-        <RelativeLayout>
-            <ImageButton Source="MainMenu.png"
-                         WidthRequest="20"
-                         HeightRequest="20"
-                         Clicked="Return_To_Main"/>
-        </RelativeLayout>
+        <StackLayout BackgroundColor="#32053c">
+                <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Horizontal" Padding="2,10,2,2"  Grid.Row="0" Grid.Column="1">
+                    <ImageButton Source="MainMenu.png"
+                                     WidthRequest="35"
+                                     HeightRequest="35"
+                                     Clicked="Return_To_Main"/>
+                    <ImageButton Source="CheckBoxOFF.png"
+                                     x:Name="SoundBox"
+                                     WidthRequest="35"
+                                     HeightRequest="35"
+                                     Clicked="Sound_Check_Box_ImageButton"/>
+                </StackLayout>
+                <StackLayout Grid.Row="0" Grid.Column="3" Padding="2,10,2,2">
+                    <ImageButton Source="soundON.png" 
+                                 WidthRequest="35"
+                                 HeightRequest="35"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Grid.Row="2" Grid.Column="2">
+                    <Label TextColor="Gold" FontSize="20">Number</Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Grid.Row="3" Grid.Column="2">
+                    <Label FontSize="20" TextColor="gold">Dance App Name</Label>
+                </StackLayout>
+            </Grid>
+            <StackLayout>
+                <Image Source="tempimage.png" 
+                       HeightRequest="430" 
+                       WidthRequest="430"/>
+            </StackLayout>
+            <ScrollView x:Name="DanceMoves" Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" HeightRequest="150">
+                    <Image Source="Mx1.png"/>
+                    <Image Source="Mx1.png"/>
+                    <Image Source="Mx1.png"/>
+                    <Image Source="Mx1.png"/>
+                    <Image Source="Mx1.png"/>
+                    <Image Source="Mx1.png"/>
+                    <Image Source="Mx1.png"/>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
    </ContentPage.Content>
 </ContentPage>

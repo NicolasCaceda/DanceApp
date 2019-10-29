@@ -5845,10 +5845,13 @@ namespace DanceApp.Droid
 			public const int soundON = 2131165318;
 			
 			// aapt resource value: 0x7F070087
-			public const int tooltip_frame_dark = 2131165319;
+			public const int tempimage = 2131165319;
 			
 			// aapt resource value: 0x7F070088
-			public const int tooltip_frame_light = 2131165320;
+			public const int tooltip_frame_dark = 2131165320;
+			
+			// aapt resource value: 0x7F070089
+			public const int tooltip_frame_light = 2131165321;
 			
 			static Drawable()
 			{
