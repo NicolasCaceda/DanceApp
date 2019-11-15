@@ -5,139 +5,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="DanceApp.View.MainPage">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
-                <!-- For Android, its the filename w/ extension, #, actual name of the font -->
-                <On Platform="Android" Value="CaviarDreams_Bold.ttf#Caviar Dreams Bold" />
-            </OnPlatform>
-
-            <Style x:Key="ButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="#A000B6" />
-                <Setter Property="TextColor" Value="#FFCDDC17" />
-                <Setter Property="FontSize" Value="Title" />
-                <Setter Property="BorderRadius" Value="40" />
-                <Setter Property="WidthRequest" Value="72" />
-                <Setter Property="HeightRequest" Value="72" />
-                <Setter Property="FontFamily" Value="CaviarDreams_Bold.ttf#Caviar Dreams Bold" />
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#32053c">
-            <StackLayout.GestureRecognizers>
-                <SwipeGestureRecognizer Direction="Left" Swiped="SwipeLeft"/>
-                <SwipeGestureRecognizer Direction="Right" Swiped="SwipeRight"/>
-            </StackLayout.GestureRecognizers>
-            <!--<BoxView>
-                <BoxView.GestureRecognizers> 
-                    
-                    <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
-                </BoxView.GestureRecognizers>
-            </BoxView>-->
-            <Label FontFamily="{StaticResource NormalFont}"
-                    Text="Learn to Dance"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand"
-                   FontSize="Title"
-                   TextColor="#FFCDDC17"
-                    />
-            <Grid x:Name="first_grid" IsVisible="true"
-                    HorizontalOptions="CenterAndExpand">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Button FontFamily="{StaticResource NormalFont}" Style="{StaticResource ButtonStyle}" Text="1" ></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="2" Grid.Column="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="3" Grid.Column="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="4" Grid.Column="3" Style="{StaticResource ButtonStyle}"></Button>
-
-                <Button FontFamily="{StaticResource NormalFont}" Text="5" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="6" Grid.Column="1" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="7" Grid.Column="2" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="8" Grid.Column="3" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-
-                <Button FontFamily="{StaticResource NormalFont}" Text="9" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="10" Grid.Column="1" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-            </Grid>
-            <Grid x:Name="second_grid" IsVisible="false"
-                    HorizontalOptions="CenterAndExpand">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Button FontFamily="{StaticResource NormalFont}" Text="11" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="12" Grid.Column="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="13" Grid.Column="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="14" Grid.Column="3" Style="{StaticResource ButtonStyle}"></Button>
-
-                <Button FontFamily="{StaticResource NormalFont}" Text="15" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="16" Grid.Column="1" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="17" Grid.Column="2" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="18" Grid.Column="3" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-
-                <Button FontFamily="{StaticResource NormalFont}" Text="19" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="20" Grid.Column="1" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-            </Grid>
-            <Grid x:Name="third_grid" IsVisible="false"
-                    HorizontalOptions="CenterAndExpand">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Button FontFamily="{StaticResource NormalFont}" Text="21" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="22" Grid.Column="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="23" Grid.Column="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="24" Grid.Column="3" Style="{StaticResource ButtonStyle}"></Button>
-
-                <Button FontFamily="{StaticResource NormalFont}" Text="25" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="26" Grid.Column="1" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="27" Grid.Column="2" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="28" Grid.Column="3" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-
-                <Button FontFamily="{StaticResource NormalFont}" Text="29" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="30" Grid.Column="1" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="31" Grid.Column="2" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="32" Grid.Column="3" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-
-                <Button FontFamily="{StaticResource NormalFont}" Text="33" Grid.Row="3" Style="{StaticResource ButtonStyle}"></Button>
-                <Button FontFamily="{StaticResource NormalFont}" Text="34" Grid.Column="1" Grid.Row="3" Style="{StaticResource ButtonStyle}"></Button>
-            </Grid>
-            
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                FontFamily="{StaticResource CaviarDreams_Bold}"   
+                />
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"   
+                />
             <Button
-                VerticalOptions="EndAndExpand"
                 Text="To Lesson Screen"
                 Clicked="Button_Clicked"
-                FontFamily="{StaticResource NormalFont}"
+                FontFamily="{StaticResource CaviarDreams_Bold}"
                 />
-
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>
