@@ -4,7 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:viewmodel="clr-namespace:DanceApp.ViewModels"
              x:Class="DanceApp.View.MainPage">
+    <ContentPage.BindingContext>
+        <viewmodel:MainPageViewModel></viewmodel:MainPageViewModel>
+    </ContentPage.BindingContext>
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
@@ -132,8 +137,9 @@
 
             <Button
                 VerticalOptions="EndAndExpand"
-                Text="To Lesson Screen"
-                Clicked="Button_Clicked"
+                Text="{Binding text}"
+                Command="{Binding ToLessonView}"
+                CommandParameter="1"
                 FontFamily="{StaticResource NormalFont}"
                 />
 

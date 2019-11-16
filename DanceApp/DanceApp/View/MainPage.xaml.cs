@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DanceApp.ViewModels;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -18,6 +19,7 @@ namespace DanceApp.View
 
         public MainPage()
         {
+            BindingContext = new MainPageViewModel(Navigation);
             InitializeComponent();
         }
 
