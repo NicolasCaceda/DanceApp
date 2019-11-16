@@ -10,8 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace DanceApp.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : ContentPage
+    public partial class MainPage : CarouselPage
     {
+        int show_grid = 1;
+        private bool _FirstGridShow = true;
+        private bool _SecondGridShow, _ThirdGridShow = false;
+
         public MainPage()
         {
             InitializeComponent();
@@ -19,7 +23,8 @@ namespace DanceApp.View
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LessonView());
+            string lessonNumber = (sender as Button).Text;
+            await Navigation.PushAsync(new LessonView(lessonNumber));
         }
     }
 }

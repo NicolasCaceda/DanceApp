@@ -37,7 +37,7 @@
                                  HeightRequest="35"/>
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center" Grid.Row="2" Grid.Column="2">
-                    <Label TextColor="Gold" FontSize="20">Number</Label>
+                    <Label x:Name="LessonTitle" TextColor="Gold" FontSize="20" Text=""></Label>
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center" Grid.Row="3" Grid.Column="2">
                     <Label FontSize="20" TextColor="gold">Dance App Name</Label>

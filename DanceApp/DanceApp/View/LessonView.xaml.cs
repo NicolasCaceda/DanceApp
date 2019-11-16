@@ -12,9 +12,15 @@ namespace DanceApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LessonView : ContentPage
     {
-        public LessonView()
+
+
+        public LessonView(string lessonNumber)
         {
             InitializeComponent();
+
+            LessonTitle.Text = lessonNumber;
+            //LessonTitle.BindingContext = "lessonNumber";
+            //LessonTitle.SetBinding(Label.TextProperty, lessonNumber);
         }
 
         private void Return_To_Main(object sender, EventArgs e)
