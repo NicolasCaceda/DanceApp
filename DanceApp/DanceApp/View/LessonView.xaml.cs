@@ -15,6 +15,7 @@ namespace DanceApp.View
         public LessonView()
         {
             InitializeComponent();
+           //BindingContext = new LessonViewModel();
         }
 
         private void Return_To_Main(object sender, EventArgs e)
