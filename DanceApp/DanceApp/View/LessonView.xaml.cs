@@ -12,6 +12,7 @@ namespace DanceApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LessonView : ContentPage
     {
+
         public LessonView(int key)
         {
            InitializeComponent();
