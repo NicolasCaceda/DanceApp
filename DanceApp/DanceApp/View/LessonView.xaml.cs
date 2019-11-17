@@ -14,11 +14,11 @@ namespace DanceApp.View
     {
 
 
-        public LessonView(string lessonNumber)
+        public LessonView(int lessonNumber)
         {
             InitializeComponent();
 
-            LessonTitle.Text = lessonNumber;
+            LessonTitle.Text = lessonNumber.ToString();
             //LessonTitle.BindingContext = "lessonNumber";
             //LessonTitle.SetBinding(Label.TextProperty, lessonNumber);
         }
