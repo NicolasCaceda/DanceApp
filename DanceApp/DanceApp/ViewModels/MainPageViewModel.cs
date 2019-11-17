@@ -11,8 +11,6 @@ namespace DanceApp.ViewModels
     public class MainPageViewModel
     {
         public ICommand ToLessonView { protected set; get; }
-        public string Text { get; set; } = "Click Me";
-
         public MainPageViewModel()
         {
             ToLessonView = new Command<string>(async (key) => await ToNextPage(Int32.Parse(key)));

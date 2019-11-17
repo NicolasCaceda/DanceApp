@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:viewmodel="clr-namespace:DanceApp.ViewModels"
-             x:Class="DanceApp.View.MainPage">
+             x:Class="DanceApp.View.MainPage"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.BindingContext>
         <viewmodel:MainPageViewModel></viewmodel:MainPageViewModel>
     </ContentPage.BindingContext>
@@ -134,14 +135,6 @@
                 <Button FontFamily="{StaticResource NormalFont}" Command="{Binding ToLessonView}" CommandParameter="33" Text="33" Grid.Row="3" Style="{StaticResource ButtonStyle}"></Button>
                 <Button FontFamily="{StaticResource NormalFont}" Command="{Binding ToLessonView}" CommandParameter="34" Text="34" Grid.Column="1" Grid.Row="3" Style="{StaticResource ButtonStyle}"></Button>
             </Grid>
-
-            <Button
-                VerticalOptions="EndAndExpand"
-                Text="{Binding Text}"
-                Command="{Binding ToLessonView}"
-                CommandParameter="1"
-                FontFamily="{StaticResource NormalFont}"
-                />
 
         </StackLayout>
 
