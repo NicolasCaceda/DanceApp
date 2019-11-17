@@ -11,7 +11,7 @@ namespace DanceApp.ViewModels
     public class MainPageViewModel
     {
         public ICommand ToLessonView { protected set; get; }
-        public string text { get; set; } = "Click Me";
+        public string Text { get; set; } = "Click Me";
 
         public MainPageViewModel()
         {
@@ -19,8 +19,7 @@ namespace DanceApp.ViewModels
         }
 
         public async Task ToNextPage(int key) {
-            Console.WriteLine(key);
-            await Application.Current.MainPage.Navigation.PushAsync(new LessonView());
+            await Application.Current.MainPage.Navigation.PushAsync(new LessonView(key));
         }
     }
 }

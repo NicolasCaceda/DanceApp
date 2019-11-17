@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodel="clr-namespace:DanceApp.ViewModels"
              mc:Ignorable="d"
              x:Class="DanceApp.View.LessonView">
+    <ContentPage.BindingContext>
+        <viewmodel:LessonViewModel></viewmodel:LessonViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout BackgroundColor="#32053c">
                 <Grid>
@@ -37,10 +41,10 @@
                                  HeightRequest="35"/>
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center" Grid.Row="2" Grid.Column="2">
-                    <Label TextColor="Gold" FontSize="20">Number</Label>
+                    <Label TextColor="Gold" Text="{Binding CurrentLesson.Key}" FontSize="20"/>
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center" Grid.Row="3" Grid.Column="2">
-                    <Label FontSize="20" TextColor="gold">Dance App Name</Label>
+                    <Label FontSize="20" Text="{Binding CurrentLesson.DanceName}" TextColor="gold"></Label>
                 </StackLayout>
             </Grid>
             <StackLayout>
@@ -51,12 +55,12 @@
             <ScrollView x:Name="DanceMoves" Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal" HeightRequest="150">
                     <Image Source="Mx1.png"/>
-                    <Image Source="Mx1.png"/>
-                    <Image Source="Mx1.png"/>
-                    <Image Source="Mx1.png"/>
-                    <Image Source="Mx1.png"/>
-                    <Image Source="Mx1.png"/>
-                    <Image Source="Mx1.png"/>
+                    <Image Source="Mx2.png"/>
+                    <Image Source="Mx3.png"/>
+                    <Image Source="Mx4.png"/>
+                    <Image Source="Mx5.png"/>
+                    <Image Source="Mx6.png"/>
+                    <Image Source="Mx7.png"/>
                 </StackLayout>
             </ScrollView>
         </StackLayout>

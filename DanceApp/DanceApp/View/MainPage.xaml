@@ -137,7 +137,7 @@
 
             <Button
                 VerticalOptions="EndAndExpand"
-                Text="{Binding text}"
+                Text="{Binding Text}"
                 Command="{Binding ToLessonView}"
                 CommandParameter="1"
                 FontFamily="{StaticResource NormalFont}"

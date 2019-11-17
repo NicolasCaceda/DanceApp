@@ -22,11 +22,6 @@ namespace DanceApp.View
             InitializeComponent();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new LessonView());
-        }
-
         private void SwipeRight(object sender, SwipedEventArgs e)
         {
             if (show_grid == 1)
