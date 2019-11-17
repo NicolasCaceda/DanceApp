@@ -48,7 +48,6 @@
                    FontSize="Title"
                    TextColor="#FFCDDC17"
                     />
-
                 <Grid x:Name="first_grid" IsVisible="true"
                     HorizontalOptions="CenterAndExpand">
                     <Grid.RowDefinitions>

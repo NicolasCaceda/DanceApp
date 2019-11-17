@@ -3,8 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodel="clr-namespace:DanceApp.ViewModels"
              mc:Ignorable="d"
-             x:Class="DanceApp.View.LessonView">
+             x:Class="DanceApp.View.LessonView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewmodel:LessonViewModel></viewmodel:LessonViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout BackgroundColor="#32053c">
                 <Grid>
@@ -43,26 +48,33 @@
                                  />
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center" Grid.Row="2" Grid.Column="2">
-                    <Label x:Name="LessonTitle" TextColor="Gold" FontSize="20" Text=""></Label>
+                    <Label TextColor="Gold" Text="{Binding CurrentLesson.Key}" FontSize="20"/>
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center" Grid.Row="3" Grid.Column="2">
-                    <Label FontSize="20" TextColor="gold">Dance App Name</Label>
+                    <Label FontSize="20" Text="{Binding CurrentLesson.DanceName}" TextColor="gold"></Label>
                 </StackLayout>
             </Grid>
-            <StackLayout>
-                <Image Source="tempimage.png" 
+            <StackLayout x:Name="MainDisplay">
+                <Image Source="{Binding DisplayURL, Mode=TwoWay}" 
                        HeightRequest="430" 
                        WidthRequest="430"/>
             </StackLayout>
             <ScrollView x:Name="DanceMoves" Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal" HeightRequest="150">
-                    <Image Source="Mx1.png"/>
-                    <Image Source="Mx1.png"/>
-                    <Image Source="Mx1.png"/>
-                    <Image Source="Mx1.png"/>
-                    <Image Source="Mx1.png"/>
-                    <Image Source="Mx1.png"/>
-                    <Image Source="Mx1.png"/>
+                    <ImageButton Source="Mx1.png" Command="{Binding ChangeMainDisplay}" CommandParameter="1" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    <ImageButton Source="Mx2.png" Command="{Binding ChangeMainDisplay}" CommandParameter="2" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    <ImageButton Source="Mx3.png" Command="{Binding ChangeMainDisplay}" CommandParameter="3" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    <ImageButton Source="Mx4.png" Command="{Binding ChangeMainDisplay}" CommandParameter="4" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    <ImageButton Source="Mx5.png" Command="{Binding ChangeMainDisplay}" CommandParameter="5" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    <ImageButton Source="Mx6.png" Command="{Binding ChangeMainDisplay}" CommandParameter="6" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    <ImageButton Source="Mx7.png" Command="{Binding ChangeMainDisplay}" CommandParameter="7" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
                 </StackLayout>
             </ScrollView>
         </StackLayout>

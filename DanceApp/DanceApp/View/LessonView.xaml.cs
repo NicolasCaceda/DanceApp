@@ -13,14 +13,10 @@ namespace DanceApp.View
     public partial class LessonView : ContentPage
     {
 
-
-        public LessonView(int lessonNumber)
+        public LessonView(int key)
         {
-            InitializeComponent();
-
-            LessonTitle.Text = lessonNumber.ToString();
-            //LessonTitle.BindingContext = "lessonNumber";
-            //LessonTitle.SetBinding(Label.TextProperty, lessonNumber);
+           InitializeComponent();
+           BindingContext = new ViewModels.LessonViewModel(key);
         }
 
         private void Return_To_Main(object sender, EventArgs e)
