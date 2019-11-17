@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace DanceApp.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : ContentPage
+    public partial class MainPage : CarouselPage
     {
         int show_grid = 1;
         private bool _FirstGridShow = true;

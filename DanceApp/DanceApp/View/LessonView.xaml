@@ -29,7 +29,10 @@
                     <ImageButton Source="MainMenu.png"
                                      WidthRequest="35"
                                      HeightRequest="35"
-                                     Clicked="Return_To_Main"/>
+                                     Clicked="Return_To_Main"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="Transparent"
+                                 />
                     <ImageButton Source="CheckBoxOFF.png"
                                      x:Name="SoundBox"
                                      WidthRequest="35"
@@ -39,7 +42,10 @@
                 <StackLayout Grid.Row="0" Grid.Column="3" Padding="2,10,2,2">
                     <ImageButton Source="soundON.png" 
                                  WidthRequest="35"
-                                 HeightRequest="35"/>
+                                 HeightRequest="35"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="Transparent"
+                                 />
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center" Grid.Row="2" Grid.Column="2">
                     <Label TextColor="Gold" Text="{Binding CurrentLesson.Key}" FontSize="20"/>
