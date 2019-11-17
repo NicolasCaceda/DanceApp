@@ -47,20 +47,27 @@
                     <Label FontSize="20" Text="{Binding CurrentLesson.DanceName}" TextColor="gold"></Label>
                 </StackLayout>
             </Grid>
-            <StackLayout>
-                <Image Source="tempimage.png" 
+            <StackLayout x:Name="MainDisplay">
+                <Image Source="{Binding DisplayURL, Mode=TwoWay}" 
                        HeightRequest="430" 
                        WidthRequest="430"/>
             </StackLayout>
             <ScrollView x:Name="DanceMoves" Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal" HeightRequest="150">
-                    <Image Source="Mx1.png"/>
-                    <Image Source="Mx2.png"/>
-                    <Image Source="Mx3.png"/>
-                    <Image Source="Mx4.png"/>
-                    <Image Source="Mx5.png"/>
-                    <Image Source="Mx6.png"/>
-                    <Image Source="Mx7.png"/>
+                    <ImageButton Source="Mx1.png" Command="{Binding ChangeMainDisplay}" CommandParameter="1" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    <ImageButton Source="Mx2.png" Command="{Binding ChangeMainDisplay}" CommandParameter="2" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    <ImageButton Source="Mx3.png" Command="{Binding ChangeMainDisplay}" CommandParameter="3" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    <ImageButton Source="Mx4.png" Command="{Binding ChangeMainDisplay}" CommandParameter="4" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    <ImageButton Source="Mx5.png" Command="{Binding ChangeMainDisplay}" CommandParameter="5" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    <ImageButton Source="Mx6.png" Command="{Binding ChangeMainDisplay}" CommandParameter="6" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    <ImageButton Source="Mx7.png" Command="{Binding ChangeMainDisplay}" CommandParameter="7" 
+                                 BackgroundColor="Transparent" BorderColor="Transparent"/>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
