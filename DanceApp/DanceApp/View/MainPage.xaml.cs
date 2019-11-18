@@ -15,8 +15,11 @@ namespace DanceApp.View
     {
         public MainPage()
         {
+            //Create components on the page.
             InitializeComponent();
-            BindingContext = new MainPageViewModel(Navigation);
+            
+            //Connect Bindings from View to the ViewModel where they are defined.
+            BindingContext = new MainPageViewModel();
         }
     }
 }
