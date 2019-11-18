@@ -16,7 +16,8 @@ namespace DanceApp.View
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new MainPageViewModel(Navigation);
+            NavigationPage.SetHasNavigationBar(this, false);
+            BindingContext = new MainPageViewModel();
         }
     }
 }

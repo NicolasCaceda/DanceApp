@@ -24,32 +24,86 @@
                 <Setter Property="BorderRadius" Value="40" />
                 <Setter Property="WidthRequest" Value="72" />
                 <Setter Property="HeightRequest" Value="72" />
-                <Setter Property="FontFamily" Value="CaviarDreams_Bold.ttf#Caviar Dreams Bold" />
+                <Setter Property="FontFamily" Value="CaviarDreams_Bold.ttf#Caviar Dreams Bold"/>
+                <Setter Property="Margin" Value="10"/>
             </Style>
         </ResourceDictionary>
     </CarouselPage.Resources>
-    <ContentPage IconImageSource="MO2.png">
+    
+    <ContentPage>
         <ContentPage.Content>
-        <StackLayout>
-            <!--StackLayout.GestureRecognizers>
-                <SwipeGestureRecognizer Direction="Left" Swiped="SwipeLeft"/>
-                <SwipeGestureRecognizer Direction="Right" Swiped="SwipeRight"/>
-            </>
-            <<BoxView>
-                <BoxView.GestureRecognizers> 
+            <StackLayout>
+                <Grid VerticalOptions="FillAndExpand"
+                      HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Label FontFamily="{StaticResource NormalFont}"
+                           Text="Learn to Dance"
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="Title"
+                           TextColor="#FFCDDC17"
+                           Grid.Row="0"/>
                     
-                    <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
-                </BoxView.GestureRecognizers>
-            </BoxView>-->
-            <Label FontFamily="{StaticResource NormalFont}"
-                    Text="Learn to Dance"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand"
-                   FontSize="Title"
-                   TextColor="#FFCDDC17"
-                    />
-                <Grid x:Name="first_grid" IsVisible="true"
-                    HorizontalOptions="CenterAndExpand">
+                    <Grid x:Name="first_grid"
+                          IsVisible="true"
+                          HorizontalOptions="CenterAndExpand"
+                          VerticalOptions="StartAndExpand"
+                          Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Button Command="{Binding ToLessonView}" CommandParameter="1" Text="1" Style="{StaticResource ButtonStyle}" ></Button>
+                        <Button Command="{Binding ToLessonView}" CommandParameter="2" Text="2" Grid.Column="1" Style="{StaticResource ButtonStyle}"></Button>
+                        <Button Command="{Binding ToLessonView}" CommandParameter="3" Text="3" Grid.Column="2" Style="{StaticResource ButtonStyle}"></Button>
+                        <Button Command="{Binding ToLessonView}" CommandParameter="4" Text="4" Grid.Column="3" Style="{StaticResource ButtonStyle}"></Button>
+
+                        <Button Command="{Binding ToLessonView}" CommandParameter="5" Text="5" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
+                        <Button Command="{Binding ToLessonView}" CommandParameter="6" Text="6" Grid.Column="1" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
+                        <Button Command="{Binding ToLessonView}" CommandParameter="7" Text="7" Grid.Column="2" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
+                        <Button Command="{Binding ToLessonView}" CommandParameter="8" Text="8" Grid.Column="3" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
+
+                        <Button Command="{Binding ToLessonView}" CommandParameter="9" Text="9" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
+                        <Button Command="{Binding ToLessonView}" CommandParameter="10" Text="10" Grid.Column="1" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
+                    </Grid>
+                </Grid>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage>
+        <StackLayout>
+            <Grid VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label FontFamily="{StaticResource NormalFont}"
+                           Text="Learn to Dance"
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="Title"
+                           TextColor="#FFCDDC17"
+                           Grid.Row="0"/>
+
+                <Grid x:Name="second_grid"
+                      HorizontalOptions="CenterAndExpand"
+                      VerticalOptions="StartAndExpand"
+                      Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -62,103 +116,74 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button Command="{Binding ToLessonView}" CommandParameter="1" Text="1" Style="{StaticResource ButtonStyle}" ></Button>
-                    <Button Command="{Binding ToLessonView}" CommandParameter="2" Text="2" Grid.Column="1" Style="{StaticResource ButtonStyle}"></Button>
-                    <Button Command="{Binding ToLessonView}" CommandParameter="3" Text="3" Grid.Column="2" Style="{StaticResource ButtonStyle}"></Button>
-                    <Button Command="{Binding ToLessonView}" CommandParameter="4" Text="4" Grid.Column="3" Style="{StaticResource ButtonStyle}"></Button>
+                    
+                    <Button Command="{Binding ToLessonView}" CommandParameter="11" Text="11" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="12" Text="12" Grid.Column="1" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="13" Text="13" Grid.Column="2" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="14" Text="14" Grid.Column="3" Style="{StaticResource ButtonStyle}"></Button>
 
-                    <Button Command="{Binding ToLessonView}" CommandParameter="5" Text="5" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                    <Button Command="{Binding ToLessonView}" CommandParameter="6" Text="6" Grid.Column="1" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                    <Button Command="{Binding ToLessonView}" CommandParameter="7" Text="7" Grid.Column="2" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                    <Button Command="{Binding ToLessonView}" CommandParameter="8" Text="8" Grid.Column="3" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="15" Text="15" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="16" Text="16" Grid.Column="1" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="17" Text="17" Grid.Column="2" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="18" Text="18" Grid.Column="3" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
 
-                    <Button Command="{Binding ToLessonView}" CommandParameter="9" Text="9" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-                    <Button Command="{Binding ToLessonView}" CommandParameter="10" Text="10" Grid.Column="1" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="19" Text="19" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="20" Text="20" Grid.Column="1" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
                 </Grid>
-            </StackLayout>
-        </ContentPage.Content>
-    </ContentPage>
-    <ContentPage IconImageSource="M03.png">
-        <StackLayout>
-            <Label FontFamily="{StaticResource NormalFont}"
-                    Text="Learn to Dance"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand"
-                   FontSize="Title"
-                   TextColor="#FFCDDC17"
-                    />
-
-            <Grid x:Name="second_grid"
-                    HorizontalOptions="CenterAndExpand">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Button Command="{Binding ToLessonView}" CommandParameter="11" Text="11" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="12" Text="12" Grid.Column="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="13" Text="13" Grid.Column="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="14" Text="14" Grid.Column="3" Style="{StaticResource ButtonStyle}"></Button>
-
-                <Button Command="{Binding ToLessonView}" CommandParameter="15" Text="15" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="16" Text="16" Grid.Column="1" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="17" Text="17" Grid.Column="2" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="18" Text="18" Grid.Column="3" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-
-                <Button Command="{Binding ToLessonView}" CommandParameter="19" Text="19" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="20" Text="20" Grid.Column="1" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
             </Grid>
         </StackLayout>
     </ContentPage>
-    <ContentPage IconImageSource="M04.png">
+    <ContentPage>
         <StackLayout>
-            <Label FontFamily="{StaticResource NormalFont}"
-                    Text="Learn to Dance"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand"
-                   FontSize="Title"
-                   TextColor="#FFCDDC17"
-                    />
-
-            <Grid x:Name="third_grid"
-                    HorizontalOptions="CenterAndExpand"
-                  VerticalOptions="CenterAndExpand">
+            <Grid VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Button Command="{Binding ToLessonView}" CommandParameter="21" Text="21" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="22" Text="22" Grid.Column="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="23" Text="23" Grid.Column="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="24" Text="24" Grid.Column="3" Style="{StaticResource ButtonStyle}"></Button>
+                
+                <Label FontFamily="{StaticResource NormalFont}"
+                       Text="Learn to Dance"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="Title"
+                       TextColor="#FFCDDC17"
+                       Grid.Row="0"/>
 
-                <Button Command="{Binding ToLessonView}" CommandParameter="25" Text="25" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="26" Text="26" Grid.Column="1" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="27" Text="27" Grid.Column="2" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="28" Text="28" Grid.Column="3" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
+                <Grid x:Name="third_grid"
+                      HorizontalOptions="CenterAndExpand"
+                      VerticalOptions="StartAndExpand"
+                      Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="21" Text="21" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="22" Text="22" Grid.Column="1" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="23" Text="23" Grid.Column="2" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="24" Text="24" Grid.Column="3" Style="{StaticResource ButtonStyle}"></Button>
 
-                <Button Command="{Binding ToLessonView}" CommandParameter="29" Text="29" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="30" Text="30" Grid.Column="1" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="31" Text="31" Grid.Column="2" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="32" Text="32" Grid.Column="3" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="25" Text="25" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="26" Text="26" Grid.Column="1" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="27" Text="27" Grid.Column="2" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="28" Text="28" Grid.Column="3" Grid.Row="1" Style="{StaticResource ButtonStyle}"></Button>
 
-                <Button Command="{Binding ToLessonView}" CommandParameter="33" Text="33" Grid.Row="3" Style="{StaticResource ButtonStyle}"></Button>
-                <Button Command="{Binding ToLessonView}" CommandParameter="34" Text="34" Grid.Column="1" Grid.Row="3" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="29" Text="29" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="30" Text="30" Grid.Column="1" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="31" Text="31" Grid.Column="2" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="32" Text="32" Grid.Column="3" Grid.Row="2" Style="{StaticResource ButtonStyle}"></Button>
+
+                    <Button Command="{Binding ToLessonView}" CommandParameter="33" Text="33" Grid.Row="3" Style="{StaticResource ButtonStyle}"></Button>
+                    <Button Command="{Binding ToLessonView}" CommandParameter="34" Text="34" Grid.Column="1" Grid.Row="3" Style="{StaticResource ButtonStyle}"></Button>
+                </Grid>
             </Grid>
         </StackLayout>
     </ContentPage>
