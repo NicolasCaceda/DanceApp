@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              xmlns:viewmodel="clr-namespace:DanceApp.ViewModels"
              x:Class="DanceApp.View.MainPage"
+             NavigationPage.HasNavigationBar="False"
              BackgroundColor="#32053c">
     <CarouselPage.BindingContext>
         <viewmodel:MainPageViewModel></viewmodel:MainPageViewModel>
@@ -18,15 +19,27 @@
             </OnPlatform>
 
             <Style x:Key="ButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="#A000B6" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="TextColor" Value="#FFCDDC17" />
                 <Setter Property="FontSize" Value="Title" />
                 <Setter Property="BorderRadius" Value="40" />
                 <Setter Property="WidthRequest" Value="72" />
                 <Setter Property="HeightRequest" Value="72" />
                 <Setter Property="FontFamily" Value="CaviarDreams_Bold.ttf#Caviar Dreams Bold"/>
-                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Margin" Value="8"/>
+                <Setter Property="BorderColor" Value="#A000B6"/>
+                <Setter Property="BorderWidth" Value="4"/>
             </Style>
+
+            <Style x:Key="TitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="TextColor" Value="WhiteSmoke"/>
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="Text" Value="Learn to Dance"/>
+            </Style>
+            
         </ResourceDictionary>
     </CarouselPage.Resources>
     
@@ -37,22 +50,18 @@
                       HorizontalOptions="FillAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"></RowDefinition>
-                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="4*"></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <Label FontFamily="{StaticResource NormalFont}"
-                           Text="Learn to Dance"
-                           VerticalOptions="CenterAndExpand" 
-                           HorizontalOptions="CenterAndExpand"
-                           FontSize="Title"
-                           TextColor="#FFCDDC17"
-                           Grid.Row="0"/>
+                    <BoxView Color="#A000B6" Grid.Row="0"/>
+                    <Label Style="{StaticResource TitleStyle}"/>
                     
                     <Grid x:Name="first_grid"
                           IsVisible="true"
                           HorizontalOptions="CenterAndExpand"
                           VerticalOptions="StartAndExpand"
-                          Grid.Row="1">
+                          Grid.Row="1"
+                          Margin="30">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -89,21 +98,17 @@
                   HorizontalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="4*" ></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <Label FontFamily="{StaticResource NormalFont}"
-                           Text="Learn to Dance"
-                           VerticalOptions="CenterAndExpand" 
-                           HorizontalOptions="CenterAndExpand"
-                           FontSize="Title"
-                           TextColor="#FFCDDC17"
-                           Grid.Row="0"/>
+                <BoxView Color="#A000B6" Grid.Row="0"/>
+                <Label Style="{StaticResource TitleStyle}"/>
 
                 <Grid x:Name="second_grid"
                       HorizontalOptions="CenterAndExpand"
                       VerticalOptions="StartAndExpand"
-                      Grid.Row="1">
+                      Grid.Row="1"
+                          Margin="30">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -139,21 +144,17 @@
                   HorizontalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="4*"></RowDefinition>
                 </Grid.RowDefinitions>
-                
-                <Label FontFamily="{StaticResource NormalFont}"
-                       Text="Learn to Dance"
-                       VerticalOptions="CenterAndExpand" 
-                       HorizontalOptions="CenterAndExpand"
-                       FontSize="Title"
-                       TextColor="#FFCDDC17"
-                       Grid.Row="0"/>
+
+                <BoxView Color="#A000B6" Grid.Row="0"/>
+                <Label Style="{StaticResource TitleStyle}"/>
 
                 <Grid x:Name="third_grid"
                       HorizontalOptions="CenterAndExpand"
                       VerticalOptions="StartAndExpand"
-                      Grid.Row="1">
+                      Grid.Row="1"
+                          Margin="30">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
