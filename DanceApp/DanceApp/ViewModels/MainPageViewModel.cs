@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
-using DanceApp.View;
+using DanceApp.Views;
 using System.Threading.Tasks;
 
 namespace DanceApp.ViewModels

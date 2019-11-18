@@ -11,10 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="View\LessonView.xaml">
+    <EmbeddedResource Update="Views\LessonView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\MainPage.xaml">
+    <EmbeddedResource Update="Views\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

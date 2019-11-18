@@ -10,7 +10,7 @@ namespace DanceApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new View.MainPage());
+            MainPage = new NavigationPage(new Views.MainPage());
         }
 
         protected override void OnStart()

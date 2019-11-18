@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace DanceApp.View
+namespace DanceApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LessonView : ContentPage
