@@ -51,7 +51,7 @@
             </Style>
         </ResourceDictionary>
     </CarouselPage.Resources>
-    
+
     <ContentPage>
         <ContentPage.Content>
             <StackLayout>
@@ -83,7 +83,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        
+
                         <Grid Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Center" Margin="20">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
