@@ -51,7 +51,7 @@ namespace DanceApp.ViewModels
             CurrentLesson = new Lesson
             {
                 Key = Key,
-                DanceName = "",
+                DanceName = "Dance App",
                 TotalDancePath = "M" + Key + "1.mp4",
                 LegsViewPath = "M" + Key + "2.mp4",
                 ManFirstPath = "M" + Key + "3.mp4",
