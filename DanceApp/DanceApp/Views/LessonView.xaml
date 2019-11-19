@@ -56,7 +56,7 @@
                 </StackLayout>
             </Grid>
             <StackLayout x:Name="MainDisplay">
-                <video:VideoPlayer Source="M11.mp4" WidthRequest="450" HeightRequest="450"/>
+                <video:VideoPlayer Source="{Binding DisplayURL}" WidthRequest="450" HeightRequest="450"/>
                 <!--
                 <Image Source="{Binding DisplayURL, Mode=TwoWay}" 
                        HeightRequest="430" 
