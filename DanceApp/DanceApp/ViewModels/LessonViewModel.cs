@@ -18,7 +18,7 @@ namespace DanceApp.ViewModels
         public Lesson CurrentLesson { get; set; }
         public ICommand ChangeMainDisplay { protected set; get; }
 
-        private string displayURL = "tempimage.png";
+        private string displayURL = "";
 
         public string DisplayURL
         {
@@ -63,7 +63,7 @@ namespace DanceApp.ViewModels
             //TODO removex with {CurrentLesson.Key}
             ChangeMainDisplay = new Command<string>((ButtonValue) =>
             {
-                DisplayURL = $"Mx{ButtonValue}.png";
+                DisplayURL = $"M{CurrentLesson.Key}{ButtonValue}.mp4";
             });
 
         }

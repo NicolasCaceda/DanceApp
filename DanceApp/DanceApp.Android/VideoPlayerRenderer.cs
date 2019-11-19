@@ -13,6 +13,8 @@ using ARelativeLayout = Android.Widget.RelativeLayout;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using DanceApp.Renderers.VideoPlayerRenderer;
+using System.IO;
+using System.ComponentModel;
 
 [assembly: ExportRenderer(typeof(VideoPlayer),
                           typeof(DanceApp.Droid.VideoPlayerRenderer))]
@@ -51,6 +53,7 @@ namespace DanceApp.Droid
                     SetNativeControl(relativeLayout);
                 }
                 SetSource();
+                SetAreTransportControlsEnabled();
             }
         }
 
@@ -69,11 +72,25 @@ namespace DanceApp.Droid
                     hasSetSource = true;
                 }
             }
+            else if (Element.Source is ResourceVideoSource)
+            {
+                string package = Context.PackageName;
+                string path = (Element.Source as ResourceVideoSource).Path;
+
+                if (!String.IsNullOrWhiteSpace(path))
+                {
+                    string filename = Path.GetFileNameWithoutExtension(path).ToLowerInvariant();
+                    string uri = "android.resource://" + package + "/raw/" + filename;
+                    videoView.SetVideoURI(Android.Net.Uri.Parse(uri));
+                    hasSetSource = true;
+                }
+            }
 
             if (hasSetSource && Element.AutoPlay)
             {
                 videoView.Start();
             }
+
         }
 
         protected override void Dispose(bool disposing)
@@ -88,6 +105,45 @@ namespace DanceApp.Droid
         void OnVideoViewPrepared(object sender, EventArgs args)
         {
             isPrepared = true;
+        }
+        void SetAreTransportControlsEnabled()
+        {
+            if (Element.AreTransportControlsEnabled)
+            {
+                mediaController = new MediaController(Context);
+                mediaController.SetMediaPlayer(videoView);
+                videoView.SetMediaController(mediaController);
+            }
+            else
+            {
+                videoView.SetMediaController(null);
+
+                if (mediaController != null)
+                {
+                    mediaController.SetMediaPlayer(null);
+                    mediaController = null;
+                }
+            }
+        }
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs args)
+        {
+            base.OnElementPropertyChanged(sender, args);
+
+            if (args.PropertyName == VideoPlayer.AreTransportControlsEnabledProperty.PropertyName)
+            {
+                SetAreTransportControlsEnabled();
+            }
+            else if (args.PropertyName == VideoPlayer.SourceProperty.PropertyName)
+            {
+                SetSource();
+            }
+            else if (args.PropertyName == VideoPlayer.PositionProperty.PropertyName)
+            {
+                if (Math.Abs(videoView.CurrentPosition - Element.Position.TotalMilliseconds) > 1000)
+                {
+                    videoView.SeekTo((int)Element.Position.TotalMilliseconds);
+                }
+            }
         }
     }
 }
