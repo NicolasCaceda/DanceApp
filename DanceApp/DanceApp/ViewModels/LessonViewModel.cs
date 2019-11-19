@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Input;
 using DanceApp.Models;
 using Xamarin.Forms;
+using DanceApp.Renderers.VideoPlayerRenderer;
 
 
 namespace DanceApp.ViewModels
@@ -18,9 +19,9 @@ namespace DanceApp.ViewModels
         public Lesson CurrentLesson { get; set; }
         public ICommand ChangeMainDisplay { protected set; get; }
 
-        private string displayURL = "tempimage.png";
+        private VideoSource displayURL;
 
-        public string DisplayURL
+        public VideoSource DisplayURL
         {
             get { return displayURL; }
             set
@@ -50,20 +51,25 @@ namespace DanceApp.ViewModels
             CurrentLesson = new Lesson
             {
                 Key = Key,
-                DanceName = "Yea",
-                DetailsViewPath = "stuff",
-                LegsViewPath = "legs",
-                ManFirstPath = "men",
-                ManSecondPath = "men2",
-                TotalDancePath = "all",
-                WomanFirstPath = "women",
-                WomanSecondPath = "women2"
+                DanceName = "Dance App",
+                TotalDancePath = "M" + Key + "1.mp4",
+                LegsViewPath = "M" + Key + "2.mp4",
+                ManFirstPath = "M" + Key + "3.mp4",
+                WomanFirstPath = "M" + Key + "4.mp4",
+                DetailsViewPath = "M" + Key + "5.mp4",
+                ManSecondPath = "M" + Key + "6.mp4",
+                WomanSecondPath = "M" + Key + "7.mp4"
             };
+            DisplayURL = (VideoSource)new VideoSourceConverter().ConvertFromInvariantString(CurrentLesson.TotalDancePath);
 
             //TODO removex with {CurrentLesson.Key}
             ChangeMainDisplay = new Command<string>((ButtonValue) =>
             {
-                DisplayURL = $"Mx{ButtonValue}.png";
+                string videoPath = $"M{CurrentLesson.Key}{ButtonValue}.mp4";
+                VideoSourceConverter vsourceCon = new VideoSourceConverter();
+                VideoSource vsourceMichaelHere = (VideoSource)(vsourceCon.ConvertFromInvariantString(videoPath));
+
+                DisplayURL = vsourceMichaelHere;
             });
 
         }

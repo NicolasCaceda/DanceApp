@@ -6,19 +6,20 @@
              xmlns:viewmodel="clr-namespace:DanceApp.ViewModels"
              mc:Ignorable="d"
              x:Class="DanceApp.Views.LessonView"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             xmlns:video="clr-namespace:DanceApp.Renderers.VideoPlayerRenderer">
     <ContentPage.BindingContext>
         <viewmodel:LessonViewModel></viewmodel:LessonViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout BackgroundColor="#32053c">
-                <Grid>
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
@@ -55,9 +56,12 @@
                 </StackLayout>
             </Grid>
             <StackLayout x:Name="MainDisplay">
+                <video:VideoPlayer Source="{Binding DisplayURL}" WidthRequest="450" HeightRequest="450"/>
+                <!--
                 <Image Source="{Binding DisplayURL, Mode=TwoWay}" 
                        HeightRequest="430" 
                        WidthRequest="430"/>
+                -->
             </StackLayout>
             <ScrollView x:Name="DanceMoves" Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal" HeightRequest="150">
@@ -78,5 +82,5 @@
                 </StackLayout>
             </ScrollView>
         </StackLayout>
-   </ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>
