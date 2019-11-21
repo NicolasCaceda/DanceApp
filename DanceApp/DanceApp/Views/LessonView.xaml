@@ -35,17 +35,18 @@
                                      BorderColor="Transparent"
                                  />
                     <ImageButton Source="CheckBoxOFF.png"
-                                     x:Name="SoundBox"
                                      WidthRequest="35"
                                      HeightRequest="35"
-                                     Clicked="Sound_Check_Box_ImageButton"/>
+                                     />
                 </StackLayout>
                 <StackLayout Grid.Row="0" Grid.Column="3" Padding="2,10,2,2">
-                    <ImageButton Source="soundON.png" 
+                    <ImageButton Source="{Binding GetSoundCheckBoxStatus}" 
+                                 x:Name="SoundBox"
                                  WidthRequest="35"
                                  HeightRequest="35"
-                                     BackgroundColor="Transparent"
-                                     BorderColor="Transparent"
+                                 BackgroundColor="Transparent"
+                                 BorderColor="Transparent"
+                                 Clicked="Sound_Check_Box_ImageButton"
                                  />
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center" Grid.Row="2" Grid.Column="2">
@@ -56,12 +57,9 @@
                 </StackLayout>
             </Grid>
             <StackLayout x:Name="MainDisplay">
-                <video:VideoPlayer Source="{Binding DisplayURL}" WidthRequest="450" HeightRequest="450"/>
-                <!--
-                <Image Source="{Binding DisplayURL, Mode=TwoWay}" 
-                       HeightRequest="430" 
-                       WidthRequest="430"/>
-                -->
+
+                <video:VideoPlayer x:Name="LessonVideoPlayer" Source="{Binding DisplayURL}" WidthRequest="450" HeightRequest="450"/>
+
             </StackLayout>
             <ScrollView x:Name="DanceMoves" Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal" HeightRequest="150">

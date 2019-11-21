@@ -20,7 +20,6 @@
 
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Transparent" />
-                <!--<Setter Property="TextColor" Value="#FFCDDC17" />-->
                 <Setter Property="FontSize" Value="Title" />
                 <Setter Property="BorderRadius" Value="40" />
                 <Setter Property="WidthRequest" Value="72" />

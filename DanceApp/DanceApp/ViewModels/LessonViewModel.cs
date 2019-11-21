@@ -7,7 +7,6 @@ using DanceApp.Models;
 using Xamarin.Forms;
 using DanceApp.Renderers.VideoPlayerRenderer;
 
-
 namespace DanceApp.ViewModels
 {
     class LessonViewModel : INotifyPropertyChanged
@@ -39,6 +38,12 @@ namespace DanceApp.ViewModels
             }
         }
 
+        public string GetSoundCheckBoxStatus {
+            get {
+                return (App.videoSound.IsMuted()) ? "soundOFF.png" : "soundON.png";
+            }
+            
+        }
 
         public LessonViewModel()
         {

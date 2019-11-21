@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Android.Media;
+using DanceApp.Renderers.VideoPlayerRenderer;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,7 +27,8 @@ namespace DanceApp.Views
 
         private void Sound_Check_Box_ImageButton(object sender, EventArgs e)
         {
-            Console.WriteLine("Pressed");
+            App.videoSound.ToggleVolumeMute();
+            SoundBox.Source = (App.videoSound.IsMuted()) ? "soundOFF.png" : "soundON.png";
         }
     }
 }

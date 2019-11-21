@@ -1,15 +1,18 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DanceApp.Util;
 
 namespace DanceApp
 {
     public partial class App : Application
     {
+        public static Sound videoSound;
+
         public App()
         {
             InitializeComponent();
-
+            videoSound = new Sound();
             MainPage = new NavigationPage(new Views.MainPage());
         }
 
