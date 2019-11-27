@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <AssemblyName>DanceApp</AssemblyName>
+    <ApplicationIcon>Mx-1.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
