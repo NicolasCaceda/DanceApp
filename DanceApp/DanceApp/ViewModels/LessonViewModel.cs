@@ -47,20 +47,14 @@ namespace DanceApp.ViewModels
         public LessonViewModel(int key)
         {
             this.Key = key;
-            Console.WriteLine(key);
             CurrentLesson = new Lesson
             {
                 Key = Key,
                 DanceName = "Dance App",
-                TotalDancePath = "M" + Key + "1.mp4",
-                LegsViewPath = "M" + Key + "2.mp4",
-                ManFirstPath = "M" + Key + "3.mp4",
-                WomanFirstPath = "M" + Key + "4.mp4",
-                DetailsViewPath = "M" + Key + "5.mp4",
-                ManSecondPath = "M" + Key + "6.mp4",
-                WomanSecondPath = "M" + Key + "7.mp4"
+                IsLessonViewed = true
             };
-            DisplayURL = (VideoSource)new VideoSourceConverter().ConvertFromInvariantString(CurrentLesson.TotalDancePath);
+            Console.WriteLine(App.ListOfLessons.ToString());
+            DisplayURL = (VideoSource)new VideoSourceConverter().ConvertFromInvariantString($"M{Key}1.mp4");
 
             //TODO removex with {CurrentLesson.Key}
             ChangeMainDisplay = new Command<string>((ButtonValue) =>
