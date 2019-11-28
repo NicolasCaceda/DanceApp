@@ -11,6 +11,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using Android.Content.Res;
+using System.Reflection;
 
 namespace DanceApp.Droid
 {
@@ -29,6 +30,10 @@ namespace DanceApp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
+
+            //var assembly = Assembly.GetExecutingAssembly();
+            //Stream stream = assembly.GetManifestResourceStream("DanceApp.Droid.lessonsR.json");
+            //using (StreamReader r = new StreamReader(stream))
             AssetManager assets = this.Assets;
             using (StreamReader r = new StreamReader(assets.Open("lessons.json")))
             {

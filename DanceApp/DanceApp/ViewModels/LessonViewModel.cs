@@ -16,6 +16,8 @@ namespace DanceApp.ViewModels
 
         public Lesson CurrentLesson { get; set; }
         public ICommand ChangeMainDisplay { protected set; get; }
+        public ICommand ChangeRememberance { protected set; get; }
+        private ImageSource checkBoxImage;
 
         private VideoSource displayURL;
 
@@ -27,16 +29,20 @@ namespace DanceApp.ViewModels
                 if (displayURL != value)
                 {
                     displayURL = value;
-
-                    if(PropertyChanged != null)
-                    {
-                        Console.WriteLine($"Prop CHanged");
-                        PropertyChanged(this, new PropertyChangedEventArgs("DisplayURL"));
-                    }
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DisplayURL"));
+                    
                 }
             }
         }
 
+        public ImageSource CheckBoxStatusImage {
+            get { return checkBoxImage; }
+            set
+            {
+                checkBoxImage = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CheckBoxStatusImage"));
+            }
+        }
 
         public LessonViewModel()
         {
@@ -44,30 +50,34 @@ namespace DanceApp.ViewModels
 
         public LessonViewModel(int key)
         {
-            this.Key = key - 1;
+            this.Key = key;
+
             CurrentLesson = App.ListOfLessons.Lessons[Key];
-            //CurrentLesson = new Lesson
-            //{
-            //    Key = Key,
-            //    DanceName = App,
-            //    IsLessonViewed = true
-            //};
-
-            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`");
-            Console.WriteLine(App.ListOfLessons.Lessons.ToString());
+            CurrentLesson.Key = key;
 
 
+            DisplayURL = (VideoSource)new VideoSourceConverter().ConvertFromInvariantString($"M{Key}1.mp4");
+            CheckBoxStatusImage = (CurrentLesson.IsLessonViewed) ? "CheckBoxON.png" : "CheckBoxOFF.png";
 
-            DisplayURL = (VideoSource)new VideoSourceConverter().ConvertFromInvariantString($"M{CurrentLesson.Key}1.mp4");
-
-            //TODO removex with {CurrentLesson.Key}
             ChangeMainDisplay = new Command<string>((ButtonValue) =>
             {
-                string videoPath = $"M{CurrentLesson.Key}{ButtonValue}.mp4";
+                string videoPath = $"M{Key}{ButtonValue}.mp4";
                 VideoSourceConverter vsourceCon = new VideoSourceConverter();
                 VideoSource vsourceMichaelHere = (VideoSource)(vsourceCon.ConvertFromInvariantString(videoPath));
 
                 DisplayURL = vsourceMichaelHere;
+            });
+
+            ChangeRememberance = new Command( () =>
+            {
+                // Toggle between True and False;
+                CurrentLesson.IsLessonViewed = !CurrentLesson.IsLessonViewed;
+                // Adjust the imagesource of the checkbox according to IsLessonViewed
+                CheckBoxStatusImage = (CurrentLesson.IsLessonViewed) ? "CheckBoxON.png" : "CheckBoxOFF.png";
+                
+                // Write to the json file?
+                
+
             });
 
         }

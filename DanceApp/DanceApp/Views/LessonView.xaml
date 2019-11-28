@@ -34,11 +34,12 @@
                                      BackgroundColor="Transparent"
                                      BorderColor="Transparent"
                                  />
-                    <ImageButton Source="CheckBoxOFF.png"
-                                     x:Name="SoundBox"
+                    <ImageButton Source="{Binding CheckBoxStatusImage}"
+                                     x:Name="CheckBox"
                                      WidthRequest="35"
                                      HeightRequest="35"
-                                     Clicked="Sound_Check_Box_ImageButton"/>
+                                 Command="{Binding ChangeRememberance}"
+                                      />
                 </StackLayout>
                 <StackLayout Grid.Row="0" Grid.Column="3" Padding="2,10,2,2">
                     <ImageButton Source="soundON.png" 
@@ -57,11 +58,6 @@
             </Grid>
             <StackLayout x:Name="MainDisplay">
                 <video:VideoPlayer Source="{Binding DisplayURL}" WidthRequest="450" HeightRequest="450"/>
-                <!--
-                <Image Source="{Binding DisplayURL, Mode=TwoWay}" 
-                       HeightRequest="430" 
-                       WidthRequest="430"/>
-                -->
             </StackLayout>
             <ScrollView x:Name="DanceMoves" Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal" HeightRequest="150">
