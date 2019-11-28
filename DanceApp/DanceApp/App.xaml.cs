@@ -1,10 +1,5 @@
-﻿using System;
+﻿using DanceApp.Models;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using DanceApp.Models;
-using System.Collections.Generic;
-using Newtonsoft.Json;
-using System.IO;
 
 namespace DanceApp
 {
@@ -12,10 +7,13 @@ namespace DanceApp
     {
         public static LessonCollection ListOfLessons;
 
-        public App()
+
+
+        public App(LessonCollection lessonList)
         {
             InitializeComponent();
-            ListOfLessons = JsonConvert.DeserializeObject<LessonCollection>("lessons.json");
+
+            ListOfLessons = lessonList;
 
             MainPage = new NavigationPage(new Views.MainPage());
         }
@@ -23,6 +21,7 @@ namespace DanceApp
         protected override void OnStart()
         {
             // Handle when your app starts
+
         }
 
         protected override void OnSleep()

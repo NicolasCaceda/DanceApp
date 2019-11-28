@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using System.Windows.Input;
 using DanceApp.Models;
 using Xamarin.Forms;
@@ -46,15 +44,21 @@ namespace DanceApp.ViewModels
 
         public LessonViewModel(int key)
         {
-            this.Key = key;
-            CurrentLesson = new Lesson
-            {
-                Key = Key,
-                DanceName = "Dance App",
-                IsLessonViewed = true
-            };
-            Console.WriteLine(App.ListOfLessons.ToString());
-            DisplayURL = (VideoSource)new VideoSourceConverter().ConvertFromInvariantString($"M{Key}1.mp4");
+            this.Key = key - 1;
+            CurrentLesson = App.ListOfLessons.Lessons[Key];
+            //CurrentLesson = new Lesson
+            //{
+            //    Key = Key,
+            //    DanceName = App,
+            //    IsLessonViewed = true
+            //};
+
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`");
+            Console.WriteLine(App.ListOfLessons.Lessons.ToString());
+
+
+
+            DisplayURL = (VideoSource)new VideoSourceConverter().ConvertFromInvariantString($"M{CurrentLesson.Key}1.mp4");
 
             //TODO removex with {CurrentLesson.Key}
             ChangeMainDisplay = new Command<string>((ButtonValue) =>
