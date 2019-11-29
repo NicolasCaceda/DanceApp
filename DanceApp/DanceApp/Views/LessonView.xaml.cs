@@ -26,13 +26,5 @@ namespace DanceApp.Views
         {
             Navigation.PopAsync();
         }
-
-        /* Method called when the user pressed the mute button. 
-         * Toggles the device's mute and changes the icon accordingly. */
-        private void Sound_Check_Box_ImageButton(object sender, EventArgs e)
-        {
-            App.videoSound.ToggleVolumeMute();
-            SoundBox.Source = (App.videoSound.IsMuted()) ? "soundOFF.png" : "soundON.png";
-        }
     }
 }

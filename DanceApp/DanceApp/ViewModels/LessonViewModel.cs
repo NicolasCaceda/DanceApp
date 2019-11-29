@@ -20,7 +20,9 @@ namespace DanceApp.ViewModels
         // Command for changing the video player's source.
         public ICommand ChangeMainDisplay { protected set; get; }
         public ICommand ChangeRememberance { protected set; get; }
+        public ICommand ChangeMuteStatus { protected set; get; }
         private ImageSource checkBoxImage;
+        //private ImageSource muteBoxImage;
 
         public VideoSource DisplayURL
         {
@@ -49,15 +51,16 @@ namespace DanceApp.ViewModels
             }
         }
         
-        // Method for checking the mute status and updating the icons accordingly.
-        public ImageSource GetSoundCheckBoxStatus
-        {
-            get
-            {
-                return (App.videoSound.IsMuted()) ? "soundOFF.png" : "soundON.png";
-
-            }
-        }
+        // Method for checking the mute status and updating the icons accordingly. Used because of flickering effect.
+        //public ImageSource MuteStatusImage
+        //{
+        //    get { return muteBoxImage; }
+        //    set
+        //    {
+        //        muteBoxImage = value;
+        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MuteStatusImage"));
+        //    }
+        //}
 
         public LessonViewModel()
         {
@@ -71,9 +74,10 @@ namespace DanceApp.ViewModels
             CurrentLesson = App.ListOfLessons.Lessons[Key];
             CurrentLesson.Key = key;
 
-
+            // Initialize the video in the video player and the Image boxes to represent the states of the lesson and device's mute.
             DisplayURL = (VideoSource)new VideoSourceConverter().ConvertFromInvariantString($"M{Key}1.mp4");
             CheckBoxStatusImage = (CurrentLesson.IsLessonViewed) ? "CheckBoxON.png" : "CheckBoxOFF.png";
+            //MuteStatusImage = (App.videoSound.IsMuted()) ? "soundOFF.png" : "soundON.png";
 
             ChangeMainDisplay = new Command<string>((ButtonValue) =>
             {
@@ -90,6 +94,15 @@ namespace DanceApp.ViewModels
                 // Adjust the imagesource of the checkbox according to IsLessonViewed
                 CheckBoxStatusImage = (CurrentLesson.IsLessonViewed) ? "CheckBoxON.png" : "CheckBoxOFF.png";
                 // Write to the json file....haven't gotten a method of doing this yet.
+            });
+
+            ChangeMuteStatus = new Command( () => 
+            {
+                // Toggle the device's mute on or off.
+                App.videoSound.ToggleVolumeMute();
+                // Adjust the imagesource of the mute button according to the state of the device's mute setting.
+                //MuteStatusImage = (App.videoSound.IsMuted()) ? "soundOFF.png" : "soundON.png";
+                // Unused method above because it causes a flickering effect when swapping image source.
             });
         }
     }
