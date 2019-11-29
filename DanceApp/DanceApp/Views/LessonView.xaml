@@ -40,16 +40,16 @@
                                      HeightRequest="35"
                                  Command="{Binding ChangeRememberance}"
                                       />
-
                 </StackLayout>
-                <StackLayout Grid.Row="0" Grid.Column="3" Padding="2,10,2,2">
-                    <ImageButton Source="{Binding GetSoundCheckBoxStatus}" 
+                
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="3" Padding="2,10,2,2">
+                    <!-- Image source below changed from {Binding MuteStatusImage} because of flickering effect -->
+                    <ImageButton Source="soundOFF.png" 
                                  x:Name="SoundBox"
                                  WidthRequest="35"
                                  HeightRequest="35"
-                                 BackgroundColor="Transparent"
-                                 BorderColor="Transparent"
-                                 Clicked="Sound_Check_Box_ImageButton"
+                                 BackgroundColor="#32053c"
+                                 Command="{Binding ChangeMuteStatus}"
                                  />
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center" Grid.Row="2" Grid.Column="2">
