@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using System.Windows.Input;
 using DanceApp.Models;
 using Xamarin.Forms;
@@ -21,6 +19,8 @@ namespace DanceApp.ViewModels
 
         // Command for changing the video player's source.
         public ICommand ChangeMainDisplay { protected set; get; }
+        public ICommand ChangeRememberance { protected set; get; }
+        private ImageSource checkBoxImage;
 
         public VideoSource DisplayURL
         {
@@ -34,24 +34,28 @@ namespace DanceApp.ViewModels
                 if (displayURL != value)
                 {
                     displayURL = value;
-
-                    /* Checks the event handler for changes, and call to update the 
-                     * video player of the newly changed video source, "displayURL" */
-                    if(PropertyChanged != null)
-                    {
-                        Console.WriteLine($"Prop CHanged");
-                        PropertyChanged(this, new PropertyChangedEventArgs("DisplayURL"));
-                    }
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DisplayURL"));
                 }
             }
         }
 
+        // Returns the checkBoxImage source or sets the checkBoxImage to the passed argument and update.
+        public ImageSource CheckBoxStatusImage {
+            get { return checkBoxImage; }
+            set
+            {
+                checkBoxImage = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CheckBoxStatusImage"));
+            }
+        }
+        
         // Method for checking the mute status and updating the icons accordingly.
         public ImageSource GetSoundCheckBoxStatus
         {
             get
             {
                 return (App.videoSound.IsMuted()) ? "soundOFF.png" : "soundON.png";
+
             }
         }
 
@@ -63,34 +67,30 @@ namespace DanceApp.ViewModels
         public LessonViewModel(int key)
         {
             this.Key = key;
-            // Construct a Lesson object that corresponds to the passed Key argument.
-            CurrentLesson = new Lesson
-            {
-                Key = Key,
-                DanceName = "Dance App",
-                /* Path variables below are used for connecting the buttons at the bottom on the lesson screen 
-                 * to the corresponding lesson video path. */
-                TotalDancePath = "M" + Key + "1.mp4",
-                LegsViewPath = "M" + Key + "2.mp4",
-                ManFirstPath = "M" + Key + "3.mp4",
-                WomanFirstPath = "M" + Key + "4.mp4",
-                DetailsViewPath = "M" + Key + "5.mp4",
-                ManSecondPath = "M" + Key + "6.mp4",
-                WomanSecondPath = "M" + Key + "7.mp4"
-            };
 
-            // Assigns the default video "total dance path" of the lesson to the Video Player's source.
-            DisplayURL = (VideoSource)new VideoSourceConverter().ConvertFromInvariantString(CurrentLesson.TotalDancePath);
+            CurrentLesson = App.ListOfLessons.Lessons[Key];
+            CurrentLesson.Key = key;
 
-            // Command that runs a script to change the video player's source url when triggered from the lesson view.
+
+            DisplayURL = (VideoSource)new VideoSourceConverter().ConvertFromInvariantString($"M{Key}1.mp4");
+            CheckBoxStatusImage = (CurrentLesson.IsLessonViewed) ? "CheckBoxON.png" : "CheckBoxOFF.png";
+
             ChangeMainDisplay = new Command<string>((ButtonValue) =>
             {
-                string videoPath = $"M{CurrentLesson.Key}{ButtonValue}.mp4";
+                string videoPath = $"M{Key}{ButtonValue}.mp4";
                 VideoSourceConverter vsourceCon = new VideoSourceConverter();
                 VideoSource vsourceMichaelHere = (VideoSource)(vsourceCon.ConvertFromInvariantString(videoPath));
                 DisplayURL = vsourceMichaelHere;
             });
+            
+            ChangeRememberance = new Command( () =>
+            {
+                // Toggle between True and False;
+                CurrentLesson.IsLessonViewed = !CurrentLesson.IsLessonViewed;
+                // Adjust the imagesource of the checkbox according to IsLessonViewed
+                CheckBoxStatusImage = (CurrentLesson.IsLessonViewed) ? "CheckBoxON.png" : "CheckBoxOFF.png";
+                // Write to the json file....haven't gotten a method of doing this yet.
+            });
         }
-
     }
 }
