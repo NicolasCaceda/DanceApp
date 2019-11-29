@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace DanceApp.Renderers.VideoPlayerRenderer
@@ -133,5 +131,7 @@ namespace DanceApp.Renderers.VideoPlayerRenderer
         {
             StopRequested?.Invoke(this, EventArgs.Empty);
         }
+
+        
     }
 }
