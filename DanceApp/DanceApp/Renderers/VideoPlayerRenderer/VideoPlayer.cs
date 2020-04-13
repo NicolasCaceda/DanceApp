@@ -18,7 +18,8 @@ namespace DanceApp.Renderers.VideoPlayerRenderer
 
         // AreTransportControlsEnabled property
         public static readonly BindableProperty AreTransportControlsEnabledProperty =
-            BindableProperty.Create(nameof(AreTransportControlsEnabled), typeof(bool), typeof(VideoPlayer), true);
+            BindableProperty.Create(nameof(AreTransportControlsEnabled), typeof(bool), typeof(VideoPlayer), false);
+            //set from true to false to remove timebar thing
 
         public bool AreTransportControlsEnabled
         {

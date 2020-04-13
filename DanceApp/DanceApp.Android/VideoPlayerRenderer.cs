@@ -15,6 +15,8 @@ using Xamarin.Forms.Platform.Android;
 using DanceApp.Renderers.VideoPlayerRenderer;
 using System.IO;
 using System.ComponentModel;
+using Android.Media;
+using static Android.Media.MediaPlayer;
 
 [assembly: ExportRenderer(typeof(VideoPlayer),
                           typeof(DanceApp.Droid.VideoPlayerRenderer))]
@@ -117,6 +119,8 @@ namespace DanceApp.Droid
             else
             {
                 videoView.SetMediaController(null);
+
+                videoView.SetOnPreparedListener(new VideoLoop());
 
                 if (mediaController != null)
                 {
