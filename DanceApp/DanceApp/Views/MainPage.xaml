@@ -1,57 +1,305 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:viewmodel="clr-namespace:DanceApp.ViewModels"
              x:Class="DanceApp.Views.MainPage"
+             Title="DANCEAPP"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#32053c">
-    <CarouselPage.BindingContext>
+             BackgroundImageSource="GalaxyBG.png">
+    <ContentPage.BindingContext>
         <viewmodel:MainPageViewModel></viewmodel:MainPageViewModel>
-    </CarouselPage.BindingContext>
-    <CarouselPage.Resources>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
         <ResourceDictionary>
             <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
                 <!-- For Android, its the filename w/ extension, #, actual name of the font -->
                 <On Platform="Android" Value="CaviarDreams_Bold.ttf#Caviar Dreams Bold" />
             </OnPlatform>
 
-            <Style x:Key="ButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="FontSize" Value="Title" />
-                <Setter Property="BorderRadius" Value="40" />
-                <Setter Property="WidthRequest" Value="72" />
-                <Setter Property="HeightRequest" Value="72" />
+            <Style x:Key="ButtonStyleRow1" TargetType="Button">
                 <Setter Property="FontFamily" Value="CaviarDreams_Bold.ttf#Caviar Dreams Bold"/>
-                <Setter Property="Margin" Value="8"/>
-                <Setter Property="BorderColor" Value="#A000B6"/>
-                <Setter Property="BorderWidth" Value="4"/>
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BackgroundColor" Value="#f2e9a5" />
+                <Setter Property="WidthRequest" Value="128" />
+                <Setter Property="HeightRequest" Value="40" />
                 <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="0"/>
+                <Setter Property="Margin" Value="0" />
+            </Style>
+
+            <Style x:Key="ButtonStyleRow2" TargetType="Button">
+                <Setter Property="FontFamily" Value="CaviarDreams_Bold.ttf#Caviar Dreams Bold"/>
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BackgroundColor" Value="#e0bf28" />
+                <Setter Property="WidthRequest" Value="128" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="0"/>
+                <Setter Property="Margin" Value="0" />
+            </Style>
+
+            <Style x:Key="ButtonStyleRow3" TargetType="Button">
+                <Setter Property="FontFamily" Value="CaviarDreams_Bold.ttf#Caviar Dreams Bold"/>
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BackgroundColor" Value="#e32d20" />
+                <Setter Property="WidthRequest" Value="128" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="0"/>
+                <Setter Property="Margin" Value="0" />
+            </Style>
+
+            <Style x:Key="ButtonDanceImage" TargetType="ImageButton">
+                <Setter Property="WidthRequest" Value="128" />
+                <Setter Property="HeightRequest" Value="128" />
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="0"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="Aspect" Value="AspectFill"/>
+                <Setter Property="Margin" Value="0" />
             </Style>
 
             <Style x:Key="TitleStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
-                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
-                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
-                <Setter Property="TextColor" Value="#FFCDDC17"/>
-                <Setter Property="FontSize" Value="35"/>
-                <Setter Property="Text" Value="Learn to Dance"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="#7fb0ba"/>
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="Text" Value="DANCEAPP"/>
             </Style>
 
-            <Style x:Key="SwipeCircle" TargetType="Button">
-                <Setter Property="WidthRequest" Value="10"/>
-                <Setter Property="HeightRequest" Value="10"/>
-                <Setter Property="BorderColor" Value="Beige"/>
-                <Setter Property="BorderWidth" Value="1"/>
-                <Setter Property="BorderRadius" Value="10"/>
-                <Setter Property="IsEnabled" Value="False"/>
+            <Style x:Key="InformationButton" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="CornerRadius" Value="40"/>
+                <Setter Property="BackgroundColor" Value="#7fb0ba" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="SideScroller" TargetType="ScrollView">
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="Margin" Value="0, 0, 0, 20" />
+                <Setter Property="HorizontalScrollBarVisibility" Value="Never"/>
             </Style>
         </ResourceDictionary>
-    </CarouselPage.Resources>
-
-    <ContentPage>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="0, 25, 0, 0" HeightRequest="72">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="1" Style="{StaticResource TitleStyle}"/>
+                <Button Text="i" Grid.Column="2" Style="{StaticResource InformationButton}" Command="{Binding ToLessonView}" CommandParameter="0"/>
+            </Grid>
+            <ScrollView VerticalOptions="StartAndExpand">
+                <ScrollView.Content>
+                    <StackLayout Margin="20, 0, 0, 0" Spacing="10">
+                        <Image Source="Star1.png" HorizontalOptions="Start" HeightRequest="24" />
+                        <ScrollView Style="{StaticResource SideScroller}">
+                            <StackLayout Orientation="Horizontal" Spacing="15">
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="1"
+                                                     Source="Dance1.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="1" Text="1" Style="{StaticResource ButtonStyleRow1}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="2"
+                                                     Source="Dance2.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="2" Text="2" Style="{StaticResource ButtonStyleRow1}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="3"
+                                                     Source="Dance3.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="3" Text="3" Style="{StaticResource ButtonStyleRow1}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="4"
+                                                     Source="Dance4.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="4" Text="4" Style="{StaticResource ButtonStyleRow1}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="5"
+                                                     Source="Dance5.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="5" Text="5" Style="{StaticResource ButtonStyleRow1}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="6"
+                                                     Source="Dance6.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="6" Text="6" Style="{StaticResource ButtonStyleRow1}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="7"
+                                                     Source="Dance7.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="7" Text="7" Style="{StaticResource ButtonStyleRow1}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="8"
+                                                     Source="Dance8.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="8" Text="8" Style="{StaticResource ButtonStyleRow1}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="9"
+                                                     Source="Dance9.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="9" Text="9" Style="{StaticResource ButtonStyleRow1}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="10"
+                                                     Source="Dance10.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="10" Text="10" Style="{StaticResource ButtonStyleRow1}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                        <Image Source="Star2.png" HorizontalOptions="Start" HeightRequest="24" />
+                        <ScrollView Style="{StaticResource SideScroller}">
+                            <StackLayout Orientation="Horizontal" Spacing="15">
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="11"
+                                                     Source="Dance11.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="11" Text="11" Style="{StaticResource ButtonStyleRow2}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="12"
+                                                     Source="Dance12.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="12" Text="12" Style="{StaticResource ButtonStyleRow2}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="13"
+                                                     Source="Dance13.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="13" Text="13" Style="{StaticResource ButtonStyleRow2}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="14"
+                                                     Source="Dance14.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="14" Text="14" Style="{StaticResource ButtonStyleRow2}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="15"
+                                                     Source="Dance15.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="15" Text="15" Style="{StaticResource ButtonStyleRow2}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="16"
+                                                     Source="Dance16.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="16" Text="16" Style="{StaticResource ButtonStyleRow2}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="17"
+                                                     Source="Dance17.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="17" Text="17" Style="{StaticResource ButtonStyleRow2}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="18"
+                                                     Source="Dance18.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="18" Text="18" Style="{StaticResource ButtonStyleRow2}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="19"
+                                                     Source="Dance19.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="19" Text="19" Style="{StaticResource ButtonStyleRow2}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="20"
+                                                     Source="Dance20.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="20" Text="20" Style="{StaticResource ButtonStyleRow2}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                        <Image Source="Star3.png" HorizontalOptions="Start" HeightRequest="24" />
+                        <ScrollView Style="{StaticResource SideScroller}" Margin="0, 0, 0, 500">
+                            <StackLayout Orientation="Horizontal" Spacing="15">
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="21"
+                                                     Source="Dance21.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="21" Text="21" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="22"
+                                                     Source="Dance22.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="22" Text="22" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="23"
+                                                     Source="Dance23.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="23" Text="23" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="24"
+                                                     Source="Dance24.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="24" Text="24" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="25"
+                                                     Source="Dance25.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="25" Text="25" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="26"
+                                                     Source="Dance26.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="26" Text="26" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="27"
+                                                     Source="Dance27.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="27" Text="27" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="28"
+                                                     Source="Dance28.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="28" Text="28" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="29"
+                                                     Source="Dance29.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="29" Text="29" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="30"
+                                                     Source="Dance30.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="30" Text="30" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="31"
+                                                     Source="Dance31.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="31" Text="31" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="32"
+                                                     Source="Dance32.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="32" Text="32" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="33"
+                                                     Source="Dance33.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="3" Text="33" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="0">
+                                    <ImageButton Command="{Binding ToLessonView}" CommandParameter="34"
+                                                     Source="Dance34.png" Style="{StaticResource ButtonDanceImage}"/>
+                                    <Button Command="{Binding ToLessonView}" CommandParameter="34" Text="34" Style="{StaticResource ButtonStyleRow3}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                </ScrollView.Content>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+    <!--<ContentPage>
         <ContentPage.Content>
             <StackLayout>
                 <Grid VerticalOptions="FillAndExpand"
@@ -235,5 +483,5 @@
                 </Grid>
             </Grid>
         </StackLayout>
-    </ContentPage>
-</CarouselPage>
+    </ContentPage>-->
+</ContentPage>

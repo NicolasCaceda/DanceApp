@@ -5,7 +5,7 @@ using Xamarin.Forms.Xaml;
 namespace DanceApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : CarouselPage
+    public partial class MainPage : ContentPage
     {
         public MainPage()
         {
