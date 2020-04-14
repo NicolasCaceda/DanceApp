@@ -13,6 +13,10 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout BackgroundColor="#32053c">
+            <StackLayout.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Command="{Binding OnSwipedLeft}"/>
+                <SwipeGestureRecognizer Direction="Right" Command="{Binding OnSwipedRight}"/>
+            </StackLayout.GestureRecognizers>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>

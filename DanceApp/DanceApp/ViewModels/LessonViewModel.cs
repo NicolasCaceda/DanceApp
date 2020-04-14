@@ -11,6 +11,7 @@ namespace DanceApp.ViewModels
     {
         // Class Variables
         private int Key;
+        private int POVKey;
         public Lesson CurrentLesson { get; set; }
         private VideoSource displayURL;
 
@@ -21,6 +22,8 @@ namespace DanceApp.ViewModels
         public ICommand ChangeMainDisplay { protected set; get; }
         public ICommand ChangeRememberance { protected set; get; }
         public ICommand ChangeMuteStatus { protected set; get; }
+        public ICommand OnSwipedRight { protected set; get; }
+        public ICommand OnSwipedLeft { protected set; get; }
         private ImageSource checkBoxImage;
         //private ImageSource muteBoxImage;
 
@@ -50,7 +53,7 @@ namespace DanceApp.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CheckBoxStatusImage"));
             }
         }
-        
+
         // Method for checking the mute status and updating the icons accordingly. Used because of flickering effect.
         //public ImageSource MuteStatusImage
         //{
@@ -70,6 +73,7 @@ namespace DanceApp.ViewModels
         public LessonViewModel(int key)
         {
             this.Key = key;
+            this.POVKey = 1;
 
             CurrentLesson = App.ListOfLessons.Lessons[Key];
             CurrentLesson.Key = key;
@@ -81,10 +85,8 @@ namespace DanceApp.ViewModels
 
             ChangeMainDisplay = new Command<string>((ButtonValue) =>
             {
-                string videoPath = $"M{Key}{ButtonValue}.mp4";
-                VideoSourceConverter vsourceCon = new VideoSourceConverter();
-                VideoSource vsourceMichaelHere = (VideoSource)(vsourceCon.ConvertFromInvariantString(videoPath));
-                DisplayURL = vsourceMichaelHere;
+                this.POVKey = Int32.Parse(ButtonValue);
+                changeVideoSource();
             });
             
             ChangeRememberance = new Command( () =>
@@ -104,6 +106,34 @@ namespace DanceApp.ViewModels
                 //MuteStatusImage = (App.videoSound.IsMuted()) ? "soundOFF.png" : "soundON.png";
                 // Unused method above because it causes a flickering effect when swapping image source.
             });
+
+            OnSwipedRight = new Command(() =>
+            {
+                // Formula for modular wrapping with index at 1
+                Console.WriteLine($"Current POV: {POVKey}");
+                POVKey = POVKey + 6;
+                if (POVKey > 7)
+                {
+                    POVKey %= 7;
+                }
+                Console.WriteLine($"New POV: {POVKey}");
+                changeVideoSource();
+            });
+
+            OnSwipedLeft = new Command(() =>
+            {
+                Console.WriteLine($"Current POV: {POVKey}");
+                POVKey = (POVKey % 7) + 1;
+                Console.WriteLine($"New POV: {POVKey}");
+                changeVideoSource();
+            });
+
+            void changeVideoSource() {
+                string videoPath = $"M{Key}{POVKey}.mp4";
+                VideoSourceConverter vsourceCon = new VideoSourceConverter();
+                VideoSource vsourceMichaelHere = (VideoSource)(vsourceCon.ConvertFromInvariantString(videoPath));
+                DisplayURL = vsourceMichaelHere;
+            }
         }
     }
 }
