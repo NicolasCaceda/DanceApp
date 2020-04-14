@@ -80,21 +80,22 @@ namespace DanceApp.ViewModels
 
             // Initialize the video in the video player and the Image boxes to represent the states of the lesson and device's mute.
             DisplayURL = (VideoSource)new VideoSourceConverter().ConvertFromInvariantString($"M{Key}1.mp4");
-            CheckBoxStatusImage = (CurrentLesson.IsLessonViewed) ? "CheckBoxON.png" : "CheckBoxOFF.png";
+            CheckBoxStatusImage = (CurrentLesson.IsLessonViewed[POVKey-1]) ? "CheckBoxON.png" : "CheckBoxOFF.png";
             //MuteStatusImage = (App.videoSound.IsMuted()) ? "soundOFF.png" : "soundON.png";
 
             ChangeMainDisplay = new Command<string>((ButtonValue) =>
             {
                 this.POVKey = Int32.Parse(ButtonValue);
+                CheckBoxStatusImage = (CurrentLesson.IsLessonViewed[POVKey - 1]) ? "CheckBoxON.png" : "CheckBoxOFF.png";
                 changeVideoSource();
             });
 
             ChangeRememberance = new Command( () =>
             {
                 // Toggle between True and False;
-                CurrentLesson.IsLessonViewed = !CurrentLesson.IsLessonViewed;
+                CurrentLesson.IsLessonViewed[POVKey - 1] = !CurrentLesson.IsLessonViewed[POVKey-1];
                 // Adjust the imagesource of the checkbox according to IsLessonViewed
-                CheckBoxStatusImage = (CurrentLesson.IsLessonViewed) ? "CheckBoxON.png" : "CheckBoxOFF.png";
+                CheckBoxStatusImage = (CurrentLesson.IsLessonViewed[POVKey - 1]) ? "CheckBoxON.png" : "CheckBoxOFF.png";
                 // Write to the json file....haven't gotten a method of doing this yet.
             });
 
@@ -110,21 +111,19 @@ namespace DanceApp.ViewModels
             OnSwipedRight = new Command(() =>
             {
                 // Formula for modular wrapping with index at 1
-                Console.WriteLine($"Current POV: {POVKey}");
                 POVKey = POVKey + 6;
                 if (POVKey > 7)
                 {
                     POVKey %= 7;
                 }
-                Console.WriteLine($"New POV: {POVKey}");
+                CheckBoxStatusImage = (CurrentLesson.IsLessonViewed[POVKey - 1]) ? "CheckBoxON.png" : "CheckBoxOFF.png";
                 changeVideoSource();
             });
 
             OnSwipedLeft = new Command(() =>
             {
-                Console.WriteLine($"Current POV: {POVKey}");
                 POVKey = (POVKey % 7) + 1;
-                Console.WriteLine($"New POV: {POVKey}");
+                CheckBoxStatusImage = (CurrentLesson.IsLessonViewed[POVKey - 1]) ? "CheckBoxON.png" : "CheckBoxOFF.png";
                 changeVideoSource();
             });
 

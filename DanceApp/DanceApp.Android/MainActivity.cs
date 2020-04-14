@@ -35,13 +35,41 @@ namespace DanceApp.Droid
             //Stream stream = assembly.GetManifestResourceStream("DanceApp.Droid.lessonsR.json");
             //using (StreamReader r = new StreamReader(stream))
             AssetManager assets = this.Assets;
-            using (StreamReader r = new StreamReader(assets.Open("lessons.json")))
+            var backingFile = Path.Combine(Xamarin.Essentials.FileSystem.AppDataDirectory, "lessons.json");
+            Console.WriteLine(backingFile);
+            if (!File.Exists(backingFile))
             {
-                var json = r.ReadToEnd();
-                ListOfLessons = JsonConvert.DeserializeObject<LessonCollection>(json);
+                using (StreamReader r = new StreamReader(assets.Open("lessons.json")))
+                {
+                    var json = r.ReadToEnd();
+                    ListOfLessons = JsonConvert.DeserializeObject<LessonCollection>(json);
+                }
+                using (StreamWriter w = File.CreateText(backingFile))
+                {
+                    JsonConvert.SerializeObject(ListOfLessons);
+                }
+            }
+            else
+            {
+                using (StreamReader r = new StreamReader(backingFile))
+                {
+                    var json = r.ReadToEnd();
+                    ListOfLessons = JsonConvert.DeserializeObject<LessonCollection>(json);
+                }
             }
 
             LoadApplication(new App(ListOfLessons));
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            var backingFile = Path.Combine(Xamarin.Essentials.FileSystem.AppDataDirectory, "lessons.json");
+            using (StreamWriter w = File.CreateText(backingFile))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(w, ListOfLessons);
+            }
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

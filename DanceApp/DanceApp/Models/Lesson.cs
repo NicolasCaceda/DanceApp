@@ -11,6 +11,6 @@ namespace DanceApp.Models
         // Dance Name
         public string DanceName { get; set; }
         // Is it Viewed
-        public bool IsLessonViewed { get; set; }
+        public List<Boolean> IsLessonViewed { get; set; }
     }
 }

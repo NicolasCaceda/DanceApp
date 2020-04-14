@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\CaviarDreams_Bold.ttf" />
+    <AndroidAsset Include="save\lessons.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

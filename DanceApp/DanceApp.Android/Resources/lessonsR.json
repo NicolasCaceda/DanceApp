@@ -1,144 +1,144 @@
 ﻿{
   "Lessons": [
     {
-      "DanceName": "",
-      "IsLessonViewed":false 
+      "DanceName": "Dance 1",
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     },
     {
       "DanceName": "Dance App",
-      "IsLessonViewed": false
+      "IsLessonViewed": [ false, false, false, false, false, false, false ]
     }
   ]
 }
