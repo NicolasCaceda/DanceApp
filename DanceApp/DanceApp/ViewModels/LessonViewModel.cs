@@ -86,7 +86,7 @@ namespace DanceApp.ViewModels
                 VideoSource vsourceMichaelHere = (VideoSource)(vsourceCon.ConvertFromInvariantString(videoPath));
                 DisplayURL = vsourceMichaelHere;
             });
-            
+
             ChangeRememberance = new Command( () =>
             {
                 // Toggle between True and False;

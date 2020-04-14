@@ -7,7 +7,7 @@ namespace DanceApp.Renderers.VideoPlayerRenderer
     public enum VideoStatus
     {
         NotReady,
-        Ready,
-        Playing
+        Playing,
+        Paused
     }
 }

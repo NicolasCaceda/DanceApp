@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,21 @@ namespace DanceApp.Views
         private void Return_To_Main(object sender, EventArgs e)
         {
             Navigation.PopAsync();
+        }
+
+        //Fixed it :)
+        bool FLIPPITY_FLOPPITY_WERE_DOING_A_SWAPPITY = false;
+        public void PausePlayVideo(object sender, EventArgs e) {
+            if (FLIPPITY_FLOPPITY_WERE_DOING_A_SWAPPITY)
+            {
+                LessonVideoPlayer.Play();
+                FLIPPITY_FLOPPITY_WERE_DOING_A_SWAPPITY = !FLIPPITY_FLOPPITY_WERE_DOING_A_SWAPPITY;
+            }
+            else { 
+                LessonVideoPlayer.Pause();
+                FLIPPITY_FLOPPITY_WERE_DOING_A_SWAPPITY = !FLIPPITY_FLOPPITY_WERE_DOING_A_SWAPPITY;
+
+            }
         }
     }
 }

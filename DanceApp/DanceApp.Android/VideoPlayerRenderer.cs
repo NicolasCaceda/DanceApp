@@ -25,9 +25,11 @@ namespace DanceApp.Droid
 {
     public class VideoPlayerRenderer : ViewRenderer<VideoPlayer, ARelativeLayout>
     {
+
         VideoView videoView;
         MediaController mediaController;
         bool isPrepared;
+
         public VideoPlayerRenderer(Context context) : base(context)
         {
         }
@@ -35,9 +37,11 @@ namespace DanceApp.Droid
         protected override void OnElementChanged(ElementChangedEventArgs<VideoPlayer> e)
         {
             base.OnElementChanged(e);
-
             if (e.NewElement != null)
             {
+                e.NewElement.PlayRequested += OnPlayRequested;
+                e.NewElement.PauseRequested += OnPauseRequested;
+                e.NewElement.StopRequested += OnStopRequested;
                 if (Control == null)
                 {
                     videoView = new VideoView(Context);
@@ -54,9 +58,32 @@ namespace DanceApp.Droid
 
                     SetNativeControl(relativeLayout);
                 }
+                e.NewElement.UpdateStatus += OnUpdateStatus;
                 SetSource();
                 SetAreTransportControlsEnabled();
             }
+
+            if (e.OldElement != null)
+            {
+                e.OldElement.UpdateStatus -= OnUpdateStatus;
+                e.OldElement.PlayRequested -= OnPlayRequested;
+                e.OldElement.PauseRequested -= OnPauseRequested;
+                e.OldElement.StopRequested -= OnStopRequested;
+            }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (Control != null && videoView != null)
+            {
+                videoView.Prepared -= OnVideoViewPrepared;
+            }
+            if (Element != null)
+            {
+                Element.UpdateStatus -= OnUpdateStatus;
+            }
+
+            base.Dispose(disposing);
         }
 
         void SetSource()
@@ -95,18 +122,21 @@ namespace DanceApp.Droid
 
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (Control != null && videoView != null)
-            {
-                videoView.Prepared -= OnVideoViewPrepared;
-            }
-            base.Dispose(disposing);
-        }
-
         void OnVideoViewPrepared(object sender, EventArgs args)
         {
             isPrepared = true;
+        }
+
+        void OnUpdateStatus(object sender, EventArgs args)
+        {
+            VideoStatus status = VideoStatus.NotReady;
+            if (isPrepared)
+            {
+                status = videoView.IsPlaying ? VideoStatus.Playing : VideoStatus.Paused;
+            }
+
+            ((IVideoPlayerController)Element).status = status;
+
         }
         void SetAreTransportControlsEnabled()
         {
@@ -148,6 +178,21 @@ namespace DanceApp.Droid
                     videoView.SeekTo((int)Element.Position.TotalMilliseconds);
                 }
             }
+        }
+
+        void OnPlayRequested(object sender, EventArgs args)
+        {
+            videoView.Start();
+        }
+
+        void OnPauseRequested(object sender, EventArgs args)
+        {
+            videoView.Pause();
+        }
+
+        void OnStopRequested(object sender, EventArgs args)
+        {
+            videoView.StopPlayback();
         }
     }
 }

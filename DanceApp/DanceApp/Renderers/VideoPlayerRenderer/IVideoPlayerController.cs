@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DanceApp.Renderers.VideoPlayerRenderer
 {
-    interface IVideoPlayerController
+    public interface IVideoPlayerController
     {
         VideoStatus status { get; set; }
         TimeSpan Duration { get; set; }
