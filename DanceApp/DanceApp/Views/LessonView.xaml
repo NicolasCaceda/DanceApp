@@ -67,7 +67,7 @@
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="PausePlayVideo"></TapGestureRecognizer>
                 </StackLayout.GestureRecognizers>
-                <video:VideoPlayer BackgroundColor="Black" x:Name="LessonVideoPlayer" Source="{Binding DisplayURL}" WidthRequest="450" HeightRequest="450">
+                <video:VideoPlayer x:Name="LessonVideoPlayer" Source="{Binding DisplayURL}" WidthRequest="450" HeightRequest="450">
                 </video:VideoPlayer>
             </StackLayout>
             <ScrollView x:Name="DanceMoves" Orientation="Horizontal">
