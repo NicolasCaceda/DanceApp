@@ -66,6 +66,8 @@
             <StackLayout x:Name="MainDisplay">
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="PausePlayVideo"></TapGestureRecognizer>
+                    <SwipeGestureRecognizer Direction="Left" Command="{Binding OnSwipedLeft}"/>
+                    <SwipeGestureRecognizer Direction="Right" Command="{Binding OnSwipedRight}"/>
                 </StackLayout.GestureRecognizers>
                 <video:VideoPlayer x:Name="LessonVideoPlayer" Source="{Binding DisplayURL}" WidthRequest="450" HeightRequest="450">
                 </video:VideoPlayer>
