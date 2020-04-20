@@ -36,7 +36,6 @@ namespace DanceApp.Droid
             //using (StreamReader r = new StreamReader(stream))
             AssetManager assets = this.Assets;
             var backingFile = Path.Combine(Xamarin.Essentials.FileSystem.AppDataDirectory, "lessons.json");
-            Console.WriteLine(backingFile);
             if (!File.Exists(backingFile))
             {
                 using (StreamReader r = new StreamReader(assets.Open("lessons.json")))
